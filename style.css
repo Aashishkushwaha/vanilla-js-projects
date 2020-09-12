@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap");
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+:root {
+  --text-color-primary: #e7e7e7;
+  --occupied-seat-color: tomato;
+  --selected-seat-color: #6feaf6;
+  --white-color: #fff;
+  --bg-color: #242333;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Raleway", monospace;
+  line-height: 1.5;
+  background: var(--bg-color);
+  color: var(--text-color-primary);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-container {
+  margin: 2rem 0;
+}
+
+.movie-container select {
+  background-color: var(--text-color-primary);
+  border: 0;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  padding: 0.5rem 1.5rem;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.showcase {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.showcase li {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.showcase li small {
+  margin: 0.4rem;
+}
+
+.container {
+  perspective: 400px;
+  margin-bottom: 3rem;
+}
+
+.screen {
+  background: var(--white-color);
+  height: 7rem;
+  width: 100%;
+  margin: 1.5rem 0;
+  transform: rotateX(-45deg);
+  box-shadow: 0 3px 1rem rgba(255, 255, 255, 0.7);
+}
+
+.seat {
+  background: var(--white-color);
+  height: 1.8rem;
+  width: 1.8rem;
+  margin: 0.4rem;
+  border-top-left-radius: 0.8rem;
+  border-top-right-radius: 0.8rem;
+  transition: transform 0.25s, background 0.25s;
+}
+
+.seat.occupied {
+  background: var(--occupied-seat-color);
+}
+
+.seat.selected {
+  background: var(--selected-seat-color);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.seat:nth-of-type(2) {
+  margin-right: 2rem;
+}
+
+.seat:nth-last-of-type(2) {
+  margin-left: 2rem;
+}
+
+.seat:not(.occupied):hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.showcase .seat:not(.occupied):hover {
+  cursor: default;
+  transform: scale(1);
+}
+
+p.text {
+  margin: 0.5rem 0;
+}
+
+p.text span {
+  color: var(--selected-seat-color);
+  font-weight: 700;
+}
